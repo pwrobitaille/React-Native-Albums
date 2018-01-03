@@ -1,18 +1,30 @@
 import React from 'react'
-import { Text, StyleSheet } from 'react-native'
+import { Text, StyleSheet, View } from 'react-native'
 
 
-const Header = () => {
+const Header = (props) => {
   return (
-    <Text style={styles.container}>Albums</Text>
+    <View style={styles.viewStyle}>
+      <Text style={styles.textStyle}>{props.title}</Text>
+    </View>
   )
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+  viewStyle: {
+    backgroundColor: '#F8F8F8',
     justifyContent: 'center',
-    backgroundColor: '#333333'
+    alignItems: 'center',
+    height: 60,
+    paddingTop: 15,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    elevation: 2,
+    position: 'relative'
+  },
+  textStyle: {
+    fontSize: 20
   },
 })
 
