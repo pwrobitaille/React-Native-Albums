@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { ScrollView } from 'react-native';
+import AlbumDetail from './AlbumDetail'
 
 class AlbumList extends Component {
   state = { albums: [] };
@@ -13,23 +14,22 @@ class AlbumList extends Component {
     })
   }
 
+  renderAlbums() {
+    return this.state.albums.map(album =>
+      <AlbumDetail
+        key={album.title}
+        album={album}
+      />
+    )
+  }
+
 
   render() {
 
-    // albums = this.state.albums.map(album () => {
-    //     <Album
-    //       title = {album.title}
-    //       artist = {album.artist}
-    //       albumImage = {album.image}
-    //       artistImage = {album.thumbnail_image}
-    //       url = {album.url}
-    //     />
-    // })
-
     return (
-      <View>
-        <Text>albums</Text>
-      </View>
+      <ScrollView>
+        {this.renderAlbums()}
+      </ScrollView>
     );
   }
 }
